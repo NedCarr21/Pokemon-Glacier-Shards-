@@ -1,0 +1,624 @@
+﻿# See the documentation on the wiki to learn how to edit this file.
+#-------------------------------
+[004] # Icy Cave
+Cave,12
+    30,SANDSHREW_1,30,34
+    30,VULPIX_1,30,34
+    20,GEODUDE_1,30,34
+    15,BELDUM,30,34
+    5,TOGEPI,30,34
+#-------------------------------
+[005] # Tunnel Cave
+Cave,12
+    25,GEODUDE,30,34
+    25,SANDILE,30,34
+    20,SANDSHREW,30,34
+    20,ZUBAT,30,34
+    10,WOOBAT,30,34
+#-------------------------------
+[006] # Tunnel Cave (Snow)
+Cave,12
+    25,SNOVER,30,34
+    25,DELIBIRD,30,34
+    20,SANDSHREW_1,30,34
+    20,VULPIX_1,30,34
+    10,TOGEPI,30,34
+#-------------------------------
+[007] # Tunnel Cave (Fire)
+Cave,12
+    25,NUMEL,30,34
+    25,HOUNDOUR,30,34
+    20,GROWLITHE,30,34
+    20,ROLYCOLY,30,34
+    10,HEATMOR,30,34
+#-------------------------------
+[008] # Tunnel Cave (Sand)
+Cave,12
+    25,SANDYGAST,30,34
+    25,MARACTUS,30,34
+    20,CACNEA,30,34
+    20,LARVITAR,30,34
+    10,MINIOR,30,34
+#-------------------------------
+[032] # Mountain Pass
+Land,15
+    25,PICHU,2,4
+    15,GROWLITHE,3,4
+    15,SLOWPOKE,2,4
+    15,SNOVER,2,4
+    12,DELIBIRD,3,5
+    10,SLOWPOKE_1,2,4
+    8,SHELLDER,3,5
+PhenomenonGrass,1
+    35,AUDINO,2,4
+    30,PIKACHU,3,4
+    20,DELIBIRD,3,5
+    10,SHELLDER,3,5
+    5,RAICHU,4,5
+#-------------------------------
+[033] # Passway Cave
+Cave,12
+    30,GEODUDE,3,5
+    30,SNOVER,3,5
+    15,ARON,3,5
+    15,SHELLDER,3,5
+    5,DELIBIRD,4,5
+    5,SLOWPOKE,4,5
+PhenomenonCave,1
+    45,DRILBUR,3,5
+    25,GEODUDE_1,4,5
+    25,SANDILE,4,5
+    5,ARON,4,5
+#-------------------------------
+[042] # Passway Cave BF1
+Cave,12
+    30,GEODUDE,3,6
+    30,SNOVER,3,6
+    15,ARON,3,5
+    15,SHELLDER,3,5
+    5,DELIBIRD,4,5
+    5,SLOWPOKE,4,5
+PhenomenonCave,1
+    45,DRILBUR,3,5
+    25,GEODUDE_1,4,5
+    25,SANDILE,4,5
+    5,ARON,4,5
+#-------------------------------
+[048] # Brisk Caverns
+Cave,12
+    30,SNOVER,5,7
+    15,GEODUDE,5,7
+    15,ONIX,5,7
+    10,SANDSHREW_1,5,7
+    10,SHELLDER,5,7
+    5,ARON,6,8
+    5,DELIBIRD,6,8
+    5,DWEBBLE,6,8
+    5,GOLETT,6
+PhenomenonCave,1
+    45,DRILBUR,6,8
+    25,SANDILE,6,8
+    20,GEODUDE_1,6,8
+    10,GOLETT,6,8
+#-------------------------------
+[076] # The Glacier Climb
+Land,15
+    30,SANDSHREW_1,10,12
+    20,VULPIX_1,10,12
+    15,STARLY,10,13
+    10,ABRA,10,13
+    10,MACHOP,10,13
+    10,SLOWPOKE,11,13
+    5,PIKACHU,11,13
+PhenomenonGrass,1
+    35,AUDINO,10,12
+    30,PIKACHU,10,12
+    20,DELIBIRD,10,13
+    10,SLOWPOKE,11,13
+    5,RAICHU,11,13
+#-------------------------------
+[077] # Brisk Caverns BF1
+Cave,12
+    25,SNOVER,6,9
+    20,ONIX,6,9
+    15,GEODUDE,6,9
+    10,SANDSHREW_1,6,9
+    10,SHELLDER,6,9
+    5,DELIBIRD,6,9
+    5,DWEBBLE,7,9
+    5,GOLETT,7,9
+    5,SLOWPOKE_1,7,9
+PhenomenonCave,1
+    45,DRILBUR,6,9
+    25,SANDILE,6,9
+    20,GEODUDE_1,7,9
+    10,GOLETT,7,9
+#-------------------------------
+[078] # Summit Trail
+Land,15
+    20,SANDSHREW_1,8,10
+    20,VULPIX_1,8,10
+    15,STARLY,8,10
+    10,MAREEP,8,11
+    10,PIDOVE,8,10
+    10,SLOWPOKE,8,10
+    10,SNOVER,8,11
+    5,MINUN,9,11
+    5,PICHU,8,10
+    5,PLUSLE,9,11
+OldRod
+    50,MAGIKARP,8,10
+    30,CHINCHOU,8,10
+    20,FEEBAS,8,10
+GoodRod
+    50,CHINCHOU,8,10
+    15,SLOWPOKE,8,10
+    15,SLOWPOKE_1,8,10
+    10,CORSOLA,8,10
+    10,CORSOLA_1,8,10
+SuperRod
+    50,FEEBAS,8,10
+    20,STUNFISK,8,10
+    15,CORSOLA,8,10
+    15,CORSOLA_1,8,10
+PhenomenonGrass,1
+    50,AUDINO,8,10
+    20,MINUN,8,9
+    20,PLUSLE,8,9
+    5,RAICHU,9,10
+    5,RAICHU_1,9,10
+#-------------------------------
+[079] # Wooded Hill
+Land,15
+    25,SNOVER,28,31
+    20,SLOWPOKE,28,31
+    15,DELIBIRD,28,31
+    15,DUNSPARCE,28,31
+    10,AUDINO,28,31
+    10,HELIOPTILE,28,31
+    5,BIDOOF,28,31
+OldRod
+    50,MAGIKARP,28,31
+    30,GYARADOS,28,31
+    20,CHINCHOU,28,31
+GoodRod
+    50,FEEBAS,28,31
+    20,HORSEA,28,31
+    15,SLOWPOKE,28,31
+    15,SLOWPOKE_1,28,31
+SuperRod
+    50,FEEBAS,28,31
+    20,MILOTIC,28,31
+    15,CORSOLA,28,31
+    15,CORSOLA_1,28,31
+PhenomenonGrass,1
+    80,AUDINO,28,31
+    10,BIBAREL,28,31
+    10,HELIOLISK,28,31
+#-------------------------------
+[080] # The Deep Dark
+Land,15
+    30,WURMPLE,30,34
+    15,MORELULL,30,34
+    10,DEWPIDER,30,34
+    10,LOTAD,30,34
+    10,SHROOMISH,30,34
+    5,CUTIEFLY,30,34
+    5,DURANT,30,34
+    5,HERACROSS,30,34
+    5,PINSIR,30,34
+    5,SCYTHER,30,34
+PhenomenonGrass,1
+    30,AUDINO,30,34
+    20,BRELOOM,30,34
+    20,LOMBRE,30,34
+    20,SCYTHER,30,34
+    10,RIBOMBEE,30,34
+#-------------------------------
+[081] # Apex Ridge
+OldRod
+    50,MAGIKARP,9,11
+    30,CHINCHOU,9,11
+    10,CORSOLA,9,11
+    10,CORSOLA_1,9,11
+GoodRod
+    50,CHINCHOU,9,11
+    30,FEEBAS,9,11
+    20,HORSEA,9,11
+SuperRod
+    50,FEEBAS,9,11
+    30,HORSEA,9,11
+    20,LOTAD,9,11
+#-------------------------------
+[083] # Apex Cavern
+Cave,12
+    20,GEODUDE,9,11
+    20,ONIX,9,11
+    15,GOLETT,9,11
+    10,DWEBBLE,9,11
+    10,GASTLY,9,11
+    10,ROGGENROLA,9,11
+    10,ZUBAT,9,11
+    5,LARVITAR,9,11
+PhenomenonCave,1
+    40,DRILBUR,9,12
+    25,ROGGENROLA,9,12
+    20,GEODUDE_1,9,12
+    15,LARVITAR,9,12
+#-------------------------------
+[084] # Apex Cavern BF1
+Cave,12
+    20,GEODUDE,10,12
+    12,GOLETT,10,12
+    12,ONIX,10,12
+    10,DWEBBLE,10,12
+    10,ROGGENROLA,10,12
+    10,ZUBAT,10,11
+    8,GASTLY,10,11
+    8,LARVITAR,10,12
+    5,MAWILE,10,12
+    5,SABLEYE,10,12
+PhenomenonCave,1
+    40,DRILBUR,10,13
+    25,ROGGENROLA,10,13
+    15,GEODUDE_1,10,13
+    10,LARVITAR,10,13
+    5,MAWILE,10,13
+    5,SABLEYE,10,13
+#-------------------------------
+[085] # Wooded Hill
+Land,15
+    15,DELIBIRD,29,32
+    15,DUNSPARCE,29,32
+    15,EEVEE,29,32
+    15,PIKACHU,29,32
+    15,SNOVER,29,32
+    10,AUDINO,29,32
+    5,BIDOOF,29,32
+    5,BONSLY,29,32
+    5,HELIOPTILE,29,32
+OldRod
+    50,MAGIKARP,29,32
+    30,GYARADOS,29,32
+    20,CHINCHOU,29,32
+GoodRod
+    50,FEEBAS,29,32
+    20,HORSEA,29,32
+    15,SLOWPOKE,29,32
+    15,SLOWPOKE_1,29,32
+SuperRod
+    50,FEEBAS,29,32
+    20,MILOTIC,29,32
+    15,CORSOLA,29,32
+    15,CORSOLA_1,29,32
+PhenomenonGrass,1
+    50,AUDINO,29,32
+    15,BIBAREL,29,32
+    15,HELIOLISK,29,32
+    15,SUDOWOODO,29,32
+    3,RAICHU,29,32
+    2,RAICHU_1,29,32
+#-------------------------------
+[086] # Shulk Caverns F4
+Cave,12
+    20,GEODUDE,12,14
+    20,ONIX,12,14
+    15,SHELLDER,12,14
+    10,SANDSHREW_1,12,14
+    10,VULPIX_1,12,14
+    5,ARON,13,14
+    5,DWEBBLE,13,14
+    5,GOLETT,13,14
+    5,SNOVER,13,14
+    5,ZUBAT,13,14
+Land,15
+    20,DUNSPARCE,12,14
+    20,GEODUDE,12,14
+    20,GROWLITHE,12,14
+    20,ZUBAT,12,14
+    10,ROLYCOLY,12,14
+    10,SANDILE,12,14
+PhenomenonCave,1
+    50,DRILBUR,12,14
+    30,ROGGENROLA,12,14
+    10,ARON,12,14
+    10,ZUBAT,12,14
+#-------------------------------
+[087] # Shulk Caverns F3
+Cave,12
+    20,GEODUDE,13,15
+    15,ONIX,13,15
+    15,WOOBAT,13,15
+    10,DUNSPARCE,13,15
+    10,SANDSHREW,13,15
+    5,ARON,14,15
+    5,GOLETT,14,15
+    5,RATTATA,14,15
+    5,ROLYCOLY,14,15
+    5,SCRAGGY,14,15
+    5,ZUBAT,14,15
+Land,15
+    20,DUNSPARCE,13,15
+    20,GEODUDE,13,15
+    20,GROWLITHE,13,15
+    20,ZUBAT,13,15
+    10,ROLYCOLY,13,15
+    10,SANDILE,13,15
+PhenomenonCave,1
+    50,DRILBUR,13,15
+    30,ROLYCOLY,13,15
+    10,SCRAGGY,13,15
+    10,ZUBAT,13,15
+#-------------------------------
+[089] # Shulk Caverns F2
+Cave,12
+    15,DUNSPARCE,14,16
+    15,GEODUDE,14,16
+    15,ONIX,14,16
+    15,WOOBAT,14,16
+    10,SANDSHREW,14,16
+    5,ARON,15,16
+    5,GOLETT,15,16
+    5,RATTATA,15,16
+    5,ROLYCOLY,15,16
+    5,SCRAGGY,15,16
+    5,ZUBAT,15,16
+Land,15
+    20,DUNSPARCE,13,15
+    20,GEODUDE,13,15
+    20,GROWLITHE,13,15
+    20,ZUBAT,13,15
+    10,ROLYCOLY,13,15
+    10,SANDILE,13,15
+PhenomenonCave,1
+    50,DRILBUR,14,16
+    30,ROLYCOLY,14,16
+    10,SCRAGGY,14,16
+    10,ZUBAT,14,16
+#-------------------------------
+[090] # Blizmoor Town
+OldRod
+    30,CHINCHOU,16,18
+    25,CORSOLA,16,18
+    25,CORSOLA_1,16,18
+    20,FEEBAS,16,18
+GoodRod
+    50,CHINCHOU,16,18
+    15,SLOWPOKE,19,21
+    15,SLOWPOKE_1,19,21
+    10,CORSOLA,16,18
+    10,CORSOLA_1,16,18
+SuperRod
+    50,FEEBAS,16,18
+    30,CORSOLA,16,18
+    20,STUNFISK,16,18
+#-------------------------------
+[092] # Icy Plains
+Land,15
+    20,SNOVER,18,20
+    15,PIKACHU,18,20
+    15,WINGULL,18,20
+    10,AUDINO,18,20
+    10,RATTATA,18,20
+    10,SLOWPOKE,18,20
+    10,VULPIX,18,20
+    5,LOTAD,18,20
+    5,SNEASEL,18,20
+PhenomenonGrass,1
+    60,AUDINO,18,20
+    20,PIKACHU,18,20
+    15,LOTAD,18,20
+    5,WEAVILE,18,20
+#-------------------------------
+[093] # Icy Plains
+Land,15
+    20,SNOVER,19,21
+    15,PICHU,19,21
+    15,WINGULL,19,21
+    10,AUDINO,19,21
+    10,RATTATA,19,21
+    10,SLOWPOKE,19,21
+    10,VULPIX,19,21
+    5,LOTAD,19,21
+    5,SNEASEL,19,21
+OldRod
+    30,CHINCHOU,19,21
+    25,CORSOLA,19,21
+    25,CORSOLA_1,19,21
+    20,LOTAD,19,21
+GoodRod
+    50,CHINCHOU,19,21
+    15,SLOWPOKE,19,21
+    15,SLOWPOKE_1,19,21
+    10,CORSOLA,19,21
+    10,CORSOLA_1,19,21
+SuperRod
+    50,HORSEA,19,21
+    30,LOTAD,19,21
+    20,STUNFISK,19,21
+PhenomenonGrass,1
+    60,AUDINO,18,20
+    20,PIKACHU,18,20
+    15,LOTAD,18,20
+    5,WEAVILE,18,20
+#-------------------------------
+[094] # Shulk Caverns F1
+Cave,12
+    15,DUNSPARCE,15,17
+    15,GEODUDE,15,17
+    15,ONIX,15,17
+    15,WOOBAT,15,17
+    10,SANDSHREW,15,17
+    5,DWEBBLE,16,17
+    5,GOLETT,16,17
+    5,RATTATA,16,17
+    5,SANDILE,16,17
+    5,SCRAGGY,16,17
+    5,ZUBAT,16,17
+Land,15
+    20,GEODUDE,13,15
+    20,GROWLITHE,13,15
+    20,WOOBAT,13,15
+    20,ZUBAT,13,15
+    10,ROLYCOLY,13,15
+    10,SANDILE,13,15
+PhenomenonCave,1
+    50,DRILBUR,15,17
+    30,SANDILE,15,17
+    10,RATTATA,15,17
+    10,SCRAGGY,15,17
+#-------------------------------
+[096] # Pinoidae City
+Land,15
+    25,LOTAD,24,27
+    25,SANDYGAST,24,27
+    10,CUTIEFLY,24,27
+    10,ROLYCOLY,24,27
+    10,SHROOMISH,24,27
+    10,SUNKERN,24,27
+    5,HONEDGE,24,27
+    5,WINGULL,24,27
+PhenomenonGrass,1
+    40,AUDINO,24,27
+    20,PIKACHU,24,27
+    10,CUTIEFLY,24,27
+    10,GIBLE,24,27
+    10,HONEDGE,24,27
+    10,WINGULL,24,27
+#-------------------------------
+[098] # Lacebark Woods
+Land,15
+    25,SNOVER,21,23
+    20,SHROOMISH,21,23
+    10,DELIBIRD,21,23
+    10,HOOTHOOT,21,23
+    10,RATICATE,21,23
+    5,CASCOON,21,23
+    5,MURKROW,21,23
+    5,SILCOON,21,23
+    5,SNEASEL,21,23
+    5,WURMPLE,21,23
+PhenomenonGrass,1
+    60,AUDINO,21,23
+    20,RATICATE_1,21,23
+    5,BEAUTIFLY,21,23
+    5,DUSTOX,21,23
+    5,HONCHKROW,21,23
+    5,WEAVILE,21,23
+#-------------------------------
+[099] # Sunflower Plains
+Land,15
+    25,WURMPLE,21,24
+    20,SHROOMISH,21,24
+    15,SUNKERN,21,24
+    10,CUTIEFLY,21,24
+    10,LOTAD,21,24
+    10,VENIPEDE,22,25
+    5,HERACROSS,22,25
+    5,PINSIR,22,25
+PhenomenonGrass,1
+    60,AUDINO,22,25
+    20,RATICATE_1,22,25
+    5,BEAUTIFLY,22,25
+    5,DUSTOX,22,25
+    5,HERACROSS,22,25
+    5,PINSIR,22,25
+#-------------------------------
+[100] # Sunflower Plains
+Land,15
+    25,WURMPLE,22,24
+    20,SHROOMISH,22,24
+    15,SUNKERN,22,24
+    10,CUTIEFLY,22,24
+    10,LOTAD,23,24
+    10,VENIPEDE,23,25
+    5,HERACROSS,23,25
+    5,PINSIR,23,25
+OldRod
+    50,MAGIKARP,23,25
+    30,CHINCHOU,23,25
+    20,LOTAD,23,25
+GoodRod
+    25,SLOWPOKE,23,25
+    25,SLOWPOKE_1,23,25
+    20,WAILMER,23,25
+    15,CORSOLA,23,25
+    15,CORSOLA_1,23,25
+SuperRod
+    50,HORSEA,23,25
+    30,LOTAD,23,25
+    20,WAILMER,23,25
+PhenomenonGrass,1
+    60,AUDINO,23,25
+    20,RATICATE_1,23,25
+    5,BEAUTIFLY,23,25
+    5,DUSTOX,23,25
+    5,HERACROSS,23,25
+    5,PINSIR,23,25
+#-------------------------------
+[101] # Sunflower Coast
+Land,15
+    30,SANDYGAST,23,25
+    15,SANDSHREW,23,25
+    10,CUTIEFLY,23,25
+    5,CASCOON,23,25
+    5,GROWLITHE,23,25
+    5,HOOTHOOT,23,25
+    5,LOMBRE,23,25
+    5,LOTAD,23,25
+    5,MURKROW,23,25
+    5,SILCOON,23,25
+    5,STARAVIA,23,25
+    5,VULPIX,23,25
+PhenomenonGrass,1
+    60,AUDINO,23,25
+    20,PALOSSAND,24,25
+    5,HONCHKROW,24,25
+    5,LUDICOLO,24,25
+#-------------------------------
+[102] # Wooded Cave
+Cave,12
+    20,GRAVELER,29,32
+    20,ONIX,29,32
+    20,WOOBAT,29,32
+    10,SANDSHREW,29,32
+    5,ARON,29,32
+    5,DUNSPARCE,29,32
+    5,DURALUDON,29,32
+    5,DURANT,29,32
+    5,GOLBAT,29,32
+    5,HEATMOR,29,32
+PhenomenonCave,1
+    50,DRILBUR,30,32
+    10,CROBAT,30,32
+    10,DURALUDON,29,32
+    10,DURANT,29,32
+    10,GOLEM,30,32
+    10,HEATMOR,29,32
+#-------------------------------
+[107] # Fossil Excavation Cave
+#-------------------------------
+[109] # Shulk Caverns BF1
+Cave,12
+    20,GOLBAT,29,32
+    20,ONIX,29,32
+    20,ZUBAT,29,32
+    15,WOOBAT,29,32
+    10,GRAVELER,29,32
+    10,GRAVELER_1,29,32
+    5,CROBAT,29,32
+Land,15
+    20,GROWLITHE,29,32
+    20,WOOBAT,29,32
+    20,ZUBAT,29,32
+    10,GRAVELER,29,32
+    10,GRAVELER_1,29,32
+    10,ROLYCOLY,29,32
+    10,SANDILE,29,32
+PhenomenonCave,1
+    60,DRILBUR,30,32
+    10,CROBAT,30,32
+    10,KROKOROK,30,32
+    10,STEELIX,30,32
+    5,GOLEM,30,32
+    5,GOLEM_1,30,32

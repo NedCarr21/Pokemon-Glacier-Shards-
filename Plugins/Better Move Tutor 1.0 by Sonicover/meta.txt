@@ -1,0 +1,4 @@
+Name = Better Move Tutor by Sonicover
+Version = 1.0.0
+Essentials = 20.1
+Credits = Sonicover

@@ -1,0 +1,17 @@
+Name         = Customizable Level Cap
+Version      = 1.0.3
+Essentials = 20.1
+Website      = https://reliccastle.com/members/7217/
+Credits      = Phantombass
+
+#===========================
+# Change Log
+#===========================
+# 1.0.1
+# Fixes the level cap being reset every time you close the game.
+#===========================
+# 1.0.2
+# Fixes the level cap not being reset if you start a new game while having a save file already.
+#===========================
+# 1.0.3
+# Updates to 20.1.

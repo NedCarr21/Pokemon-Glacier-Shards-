@@ -1,0 +1,30 @@
+﻿# See the documentation on the wiki to learn how to edit this file.
+#-------------------------------
+# Mountain Pass (32) - Glaciet Town (22)
+32,North,0,22,South,4
+# Mountain Pass (32) - The Glacier Climb (76)
+32,South,0,76,North,2
+# Wooded Hill (79) - Summit Trail (78)
+79,West,0,78,East,0
+# Apex Ridge (81) - Summit Trail (78)
+81,South,0,78,North,6
+# Wooded Hill (85) - Wooded Hill (79)
+85,North,0,79,South,12
+# Apex Ridge (81) - Wooded Hill (79)
+81,South,36,79,North,0
+# Blizmoor Town (90) - Icy Plains (93)
+90,South,50,93,North,0
+# Icy Plains (92) - Blizmoor Town (90)
+92,North,0,90,South,0
+# Icy Plains (92) - Icy Plains (93)
+92,East,0,93,West,0
+# Sunflower Plains (99) - Pinoidae City (96)
+99,South,46,96,North,0
+# Sunflower Plains (100) - Pinoidae City (96)
+100,South,0,96,North,4
+# Rusty Channel (110) - Pinoidae City (96)
+110,North,0,96,South,9
+# Sunflower Coast (101) - Pinoidae City (96)
+101,East,0,96,West,32
+# Sunflower Plains (100) - Sunflower Plains (99)
+100,West,0,99,East,0
