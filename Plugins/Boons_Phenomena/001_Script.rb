@@ -5,6 +5,8 @@
 # Please give credit when using. Changes in this version:
 # - Upgraded for Essentials v19
 # - Block inaccessible tiles from showing phenomena
+#-------------------------------------------------------------------------------
+# Upgraded for Essentials v20.1 by Ned, with help from Vendily
 #===============================================================================
 # Main code
 #-------------------------------------------------------------------------------
@@ -204,27 +206,26 @@ proc{
 
 # Modify the wild encounter based on the settings above
 EventHandlers.add(:on_wild_pokemon_created, :boon_phenomenon_wild_created,
-proc{
-  pokemon = e[0]
+proc { |pkmn|
   if $game_temp.phenomenonActivated
     if PhenomenonConfig::Pokemon[:shiny] # 4x the normal shiny chance
-      pokemon.makeShiny if rand(65536) <= Settings::SHINY_POKEMON_CHANCE * 4
+      pkmn.makeShiny if rand(65536) <= Settings::SHINY_POKEMON_CHANCE * 4
     end
     if PhenomenonConfig::Pokemon[:ivs] > -1 && rand(PhenomenonConfig::Pokemon[:ivs]) == 0
       ivs = [:HP, :ATTACK, :SPECIAL_ATTACK, :DEFENSE, :SPECIAL_DEFENSE, :SPEED]
       ivs.shuffle!
       ivs[0..1].each do |i|
-        pokemon.iv[i] = 31
+        pkmn.iv[i] = 31
       end
     end
     if PhenomenonConfig::Pokemon[:eggMoves] > -1 && rand(PhenomenonConfig::Pokemon[:eggMoves]) == 0
-      moves = GameData::Species.get_species_form(pokemon.species, pokemon.form).egg_moves
-      pokemon.learn_move(moves.random) if moves.length > 0
+      moves = GameData::Species.get_species_form(pkmn.species, pkmn.form).egg_moves
+      pkmn.learn_move(moves.random) if moves.length > 0
     end
     if PhenomenonConfig::Pokemon[:hiddenAbility] > -1 && rand(PhenomenonConfig::Pokemon[:hiddenAbility]) == 0
-      a = GameData::Species.get(pokemon.species).hidden_abilities
+      a = GameData::Species.get(pkmn.species).hidden_abilities
       if !a.nil? && a.kind_of?(Array)
-        pokemon.ability = a.random
+        pkmn.ability = a.random
       end
     end
   end

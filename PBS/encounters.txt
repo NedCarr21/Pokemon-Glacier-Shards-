@@ -40,6 +40,19 @@ Cave,12
     20,LARVITAR,30,34
     10,MINIOR,30,34
 #-------------------------------
+[009] # Hidden Grotto
+Land,15
+    40,SHROOMISH,2,4
+    30,SNOVER,2,3
+    20,WURMPLE,2,3
+    10,MURKROW,2,4
+PhenomenonGrass,1
+    35,AUDINO,2,4
+    30,PIKACHU,3,4
+    20,DELIBIRD,3,5
+    10,SHELLDER,3,5
+    5,RAICHU,4,5
+#-------------------------------
 [032] # Mountain Pass
 Land,15
     25,PICHU,2,4

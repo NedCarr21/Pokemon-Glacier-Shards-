@@ -1,9 +1,5 @@
 ﻿# See the documentation on the wiki to learn how to edit this file.
 #-------------------------------
-# Mountain Pass (32) - Glaciet Town (22)
-32,North,0,22,South,4
-# Mountain Pass (32) - The Glacier Climb (76)
-32,South,0,76,North,2
 # Wooded Hill (79) - Summit Trail (78)
 79,West,0,78,East,0
 # Apex Ridge (81) - Summit Trail (78)
@@ -28,3 +24,9 @@
 101,East,0,96,West,32
 # Sunflower Plains (100) - Sunflower Plains (99)
 100,West,0,99,East,0
+# Mountain Pass (32) - Glaciet Town (22)
+32,North,0,22,South,4
+# Hidden Grotto (9) - Glaciet Town (22)
+9,East,0,22,West,13
+# The Glacier Climb (76) - Mountain Pass (32)
+76,North,2,32,South,0

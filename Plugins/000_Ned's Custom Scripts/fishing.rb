@@ -27,36 +27,36 @@ STYLES = [
 ]
 
 def baitFishing(style=rand(5)) # the number here must be equal to the amount of arrays in the STYLES array +1
-
+  bait = 0
   pbMessage(_INTL("There seems to be some activity in the water."))
   if pbConfirmMessage(_INTL("Do you want to toss in some bait?"))
     if ($bag.has?(:BASICBAIT) || $bag.has?(:SWEETBAIT) || $bag.has?(:SPECIALTYBAIT))
-    baits = [
-      _INTL("Basic Bait"),
-      _INTL("Sweet Bait"),
-      _INTL("Specialty Bait"),
-      _INTL("None")
-    ]
-      bait = pbShowCommands(_INTL("Which bait would you like to use?"), [_INTL("Basic Bait"),_INTL("Sweet Bait"),_INTL("Specialty Bait"),_INTL("None")])
+      cmds = [
+        _INTL("Basic Bait"),
+        _INTL("Sweet Bait"),
+        _INTL("Specialty Bait"),
+        _INTL("None")
+      ]
+      bait = pbShowCommands(_INTL("Which bait would you like to use?"), cmds, 99)
       pkmn = Pokemon.new(STYLES[style].sample, 5)
       case bait
         when 0 # Basic Bait
-          if rand(BASICITEMCHANCE) == 0
+          if rand(0..BASICITEMCHANCE) == 0
             randFishingItem # gives a random item
           else
             WildBattle.start(pkmn)
           end
         when 1 # Sweet Bait
-          if rand(SWEETITEMCHANCE) == 0
+          if rand(0..SWEETITEMCHANCE) == 0
             randFishingItem # gives a random item
           else
-            WildBattle.start(GameData::Species.get(species).name,5)
+            WildBattle.start(pkmn)
           end
         when 2 # Specialty Bait
-          if rand(SPECIALTYITEMCHANCE) == 0
+          if rand(0..SPECIALTYITEMCHANCE) == 0
             randFishingItem # gives a random item
           else
-            WildBattle.start(GameData::Species.get(species).name,5)
+            WildBattle.start(pkmn)
           end
       end #cast bait end
     else

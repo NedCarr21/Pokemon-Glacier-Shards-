@@ -15,7 +15,7 @@
 #   isOutsider = (pkmn.owner.id != pbPlayer.id || $PokemonTemp.phenomenonExp ||
 #-------------------------------------------------------------------------------
 module PhenomenonConfig
-  Frequency = 500 # Chance for phenomenon to generate on step. Between 350-600.
+  Frequency = 350 # Chance for phenomenon to generate on step. Between 350-600.
   Timer = 3500 # How many frames to wait before phenomenon disappears
   Switch = 97 # Switch that when ON enables phenomena
   BattleMusic = "" # Custom music to play during Phenomenon

@@ -1,5 +1,5 @@
 #===============================================================================
-# Revamps base Essentials code relatd to battle data boxes to allow for 
+# Revamps base Essentials code relatd to battle data boxes to allow for
 # plugin compatibility.
 #===============================================================================
 
@@ -30,9 +30,9 @@ class Battle::Scene::PokemonDataBox < SpriteWrapper
     if onPlayerSide
       @showHP  = true if sideSize==1
       @showExp = true if sideSize==1
-      @spriteX = Graphics.width - 244
+      @spriteX = Graphics.width - 260
       @spriteY = Graphics.height - 192
-      @spriteBaseX = 34
+      @spriteBaseX = 16
     elsif @raid_boss
       @spriteX = @spriteY = @spriteBaseX = 0
     else
@@ -55,17 +55,17 @@ class Battle::Scene::PokemonDataBox < SpriteWrapper
       @spriteY += [-134,-46,-88,  0,-42, 46,  4, 92, 50,138][@battler.index]
     end
   end
-  
+
   def x=(value)
     super
     pbSetFocusBarX(value) if PluginManager.installed?("Focus Meter System")
     if @raid_boss
       @hpBar.x = value + 20
     else
-      @hpBar.x = value + @spriteBaseX + 102
+      @hpBar.x = value + @spriteBaseX + 14
     end
-    @expBar.x    = value + @spriteBaseX + 6
-    @hpNumbers.x = value + @spriteBaseX + 80
+    @expBar.x    = value + @spriteBaseX + 94
+    @hpNumbers.x = value + @spriteBaseX + 126
   end
 
   def y=(value)
@@ -74,9 +74,9 @@ class Battle::Scene::PokemonDataBox < SpriteWrapper
     if @raid_boss
       @hpBar.y = value + 34
     else
-      @hpBar.y = value + 40
+      @hpBar.y = value + 22
     end
-    @expBar.y    = value + 74
-    @hpNumbers.y = value + 52
+    @expBar.y    = value + 66
+    @hpNumbers.y = value + 14
   end
 end

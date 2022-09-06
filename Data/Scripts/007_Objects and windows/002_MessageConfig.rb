@@ -3,9 +3,9 @@ module MessageConfig
   LIGHT_TEXT_SHADOW_COLOR = Color.new(72, 80, 88)
   DARK_TEXT_MAIN_COLOR    = Color.new(80, 80, 88)
   DARK_TEXT_SHADOW_COLOR  = Color.new(160, 160, 168)
-  FONT_NAME               = "Power Green"
+  FONT_NAME               = "Power Red and Green"
   FONT_SIZE               = 27
-  FONT_Y_OFFSET           = 8
+  FONT_Y_OFFSET           = 0
   SMALL_FONT_NAME         = "Power Green Small"
   SMALL_FONT_SIZE         = 21
   SMALL_FONT_Y_OFFSET     = 8
@@ -95,9 +95,9 @@ module MessageConfig
 
   def self.pbSettingToTextSpeed(speed)
     case speed
-    when 0 then return 2
+    when 0 then return 3
     when 1 then return 1
-    when 2 then return -2
+    when 2 then return -3
     end
     return TEXT_SPEED || 1
   end

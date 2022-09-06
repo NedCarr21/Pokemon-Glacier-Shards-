@@ -1,5 +1,5 @@
 #===============================================================================
-# Revamps base Essentials code related to the Fight Menu to allow for 
+# Revamps base Essentials code related to the Fight Menu to allow for
 # plugin compatibility.
 #===============================================================================
 
@@ -8,7 +8,7 @@
 # Revamped Fight Menu class.
 #-------------------------------------------------------------------------------
 class Battle::Scene::FightMenu < Battle::Scene::MenuBase
-  NoButton         =-1 
+  NoButton         =-1
   MegaButton       = 0
   UltraBurstButton = 1
   ZMoveButton      = 2
@@ -103,7 +103,7 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
       @cmdWindow = Window_CommandPokemon.newWithSize(
         [], self.x, self.y, 320, Graphics.height - self.y, viewport
       )
-      @cmdWindow.columns       = 2
+      @cmdWindow.columns       = 4
       @cmdWindow.columnSpacing = 4
       @cmdWindow.ignore_input  = true
       pbSetNarrowFont(@cmdWindow.contents)
@@ -111,7 +111,7 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
     end
     self.z = z
   end
-  
+
   def dispose
     super
     @buttonBitmap&.dispose
@@ -120,13 +120,13 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
     @shiftBitmap&.dispose
     @focusBitmap&.dispose if PluginManager.installed?("Focus Meter System")
   end
-  
+
   def chosen_button=(value)
     oldValue = @chosen_button
     @chosen_button = value
     refresh if @chosen_button != oldValue
   end
-  
+
   def refreshBattleButton
     return if !USE_GRAPHICS
     if @chosen_button == NoButton
@@ -143,7 +143,7 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
     @battleButton.z = self.z - 1
     @visibility["battleButton"] = (@mode > 0)
   end
-  
+
   def refreshButtonNames
     moves = (@battler) ? @battler.moves : []
     if !USE_GRAPHICS
@@ -274,7 +274,7 @@ class Battle::Scene
     }
     return data
   end
-  
+
   def pbFightMenu(idxBattler, *params)
     data = mechanic_params(*params)
     battler = @battle.battlers[idxBattler]

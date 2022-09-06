@@ -56,26 +56,26 @@ module Game
   end
 end
 
-class PokemonPauseMenu_Scene
-  def pbStartScene
+##class PokemonPauseMenu_Scene
+##  def pbStartScene
   #  if $game_switches[NavNums::Dispose] == false
-      @viewport = Viewport.new(0, 0, Graphics.width, Graphics.height)
-      @viewport.z = 99999
-      @sprites = {}
-      @sprites["cmdwindow"] = Window_CommandPokemon.new([])
-      @sprites["cmdwindow"].visible = false
-      @sprites["cmdwindow"].viewport = @viewport
-      @sprites["infowindow"] = Window_UnformattedTextPokemon.newWithSize("", 0, 0, 32, 32, @viewport)
-      @sprites["infowindow"].visible = false
-      @sprites["helpwindow"] = Window_UnformattedTextPokemon.newWithSize("", 0, 0, 32, 32, @viewport)
-      @sprites["helpwindow"].visible = false
-      @sprites["levelcapwindow"] = Window_UnformattedTextPokemon.newWithSize("Level Cap: #{LEVEL_CAP[$game_system.level_cap]}",0,64,208,64,@viewport)
-      @sprites["levelcapwindow"].visible = false
-      @infostate = false
-      @helpstate = false
-      $close_dexnav = 0
-      $sprites = @sprites
-      pbSEPlay("GUI menu open")
+##      @viewport = Viewport.new(0, 0, Graphics.width, Graphics.height)
+##      @viewport.z = 99999
+##      @sprites = {}
+##      @sprites["cmdwindow"] = Window_CommandPokemon.new([])
+##      @sprites["cmdwindow"].visible = false
+##      @sprites["cmdwindow"].viewport = @viewport
+##      @sprites["infowindow"] = Window_UnformattedTextPokemon.newWithSize("", 0, 0, 32, 32, @viewport)
+##      @sprites["infowindow"].visible = false
+##      @sprites["helpwindow"] = Window_UnformattedTextPokemon.newWithSize("", 0, 0, 32, 32, @viewport)
+##      @sprites["helpwindow"].visible = false
+##      @sprites["levelcapwindow"] = Window_UnformattedTextPokemon.newWithSize("Level Cap: #{LEVEL_CAP[$game_system.level_cap]}",0,64,208,64,@viewport)
+##      @sprites["levelcapwindow"].visible = false
+##      @infostate = false
+##      @helpstate = false
+##      $close_dexnav = 0
+##      $sprites = @sprites
+##      pbSEPlay("GUI menu open")
 #    else
 #      $viewport1.dispose
 #      $currentDexSearch = nil
@@ -84,73 +84,73 @@ class PokemonPauseMenu_Scene
 #      pbSEPlay("GUI menu close")
 #      return
 #    end
-  end
-  def pbShowLevelCap
-    if Settings::LEVEL_CAP_SWITCH && !$currentDexSearch
-      @sprites["levelcapwindow"].visible = true
-    end
-  end
-  def pbShowMenu
-    @sprites["cmdwindow"].visible = true
-    @sprites["levelcapwindow"].visible = true
-    @sprites["infowindow"].visible = @infostate
-    @sprites["helpwindow"].visible = @helpstate
-  end
+##  end
+##  def pbShowLevelCap
+##    if Settings::LEVEL_CAP_SWITCH && !$currentDexSearch
+##      @sprites["levelcapwindow"].visible = true
+##    end
+##  end
+##  def pbShowMenu
+##    @sprites["cmdwindow"].visible = true
+##    @sprites["levelcapwindow"].visible = true
+##    @sprites["infowindow"].visible = @infostate
+##    @sprites["helpwindow"].visible = @helpstate
+##  end
+##
+##  def pbHideMenu
+##    @sprites["cmdwindow"].visible = false
+##    @sprites["levelcapwindow"].visible = false
+##    @sprites["infowindow"].visible = false
+##    @sprites["helpwindow"].visible = false
+##  end
+##end
 
-  def pbHideMenu
-    @sprites["cmdwindow"].visible = false
-    @sprites["levelcapwindow"].visible = false
-    @sprites["infowindow"].visible = false
-    @sprites["helpwindow"].visible = false
-  end
-end
-
-class PokemonPauseMenu
+##class PokemonPauseMenu
   #def pbShowLevelCap
     #@scene.pbShowLevelCap
   #end
-
-  def pbStartPokemonMenu
-    if !$player
-      if $DEBUG
-        pbMessage(_INTL("The player trainer was not defined, so the pause menu can't be displayed."))
-        pbMessage(_INTL("Please see the documentation to learn how to set up the trainer player."))
-      end
-      return
-    end
-    @scene.pbStartScene
-    # Show extra info window if relevant
-    pbShowInfo
-    if $close_dexnav != 1
-      #pbShowLevelCap if Settings::LEVEL_CAP_SWITCH
-    end
-    # Get all commands
-    command_list = []
-    commands = []
-    MenuHandlers.each_available(:pause_menu) do |option, hash, name|
-      command_list.push(name)
-      commands.push(hash)
-    end
-    # Main loop
-    end_scene = false
-    loop do
-      if !$currentDexSearch
-        choice = @scene.pbShowCommands(command_list)
-      else
-        choice = -1
-      end
-      if choice < 0
-        pbPlayCloseMenuSE if !$currentDexSearch
-        end_scene = true
-        break
-      end
-      break if commands[choice]["effect"].call(@scene)
-    end
-    if $close_dexnav != 0
-      @scene.pbEndScene if end_scene
-    end
-  end
-end
+##
+##  def pbStartPokemonMenu
+##    if !$player
+##      if $DEBUG
+##        pbMessage(_INTL("The player trainer was not defined, so the pause menu can't be displayed."))
+##        pbMessage(_INTL("Please see the documentation to learn how to set up the trainer player."))
+##      end
+##      return
+##    end
+##    @scene.pbStartScene
+##    # Show extra info window if relevant
+##    pbShowInfo
+##    if $close_dexnav != 1
+##      #pbShowLevelCap if Settings::LEVEL_CAP_SWITCH
+##    end
+##    # Get all commands
+##    command_list = []
+##    commands = []
+##    MenuHandlers.each_available(:pause_menu) do |option, hash, name|
+##      command_list.push(name)
+##      commands.push(hash)
+##    end
+##    # Main loop
+##    end_scene = false
+##    loop do
+##      if !$currentDexSearch
+##        choice = @scene.pbShowCommands(command_list)
+##      else
+##        choice = -1
+##      end
+##      if choice < 0
+##        pbPlayCloseMenuSE if !$currentDexSearch
+##        end_scene = true
+##        break
+##      end
+##      break if commands[choice]["effect"].call(@scene)
+##    end
+##    if $close_dexnav != 0
+##      @scene.pbEndScene if end_scene
+##    end
+##  end
+##end
 
 class Battle
   def pbGainExpOne(idxParty, defeatedBattler, numPartic, expShare, expAll, showMessages = true)

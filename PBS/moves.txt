@@ -9770,3 +9770,57 @@ Target = NearFoe
 FunctionCode = ZUDBypassProtect
 Flags = MaxMove,CannotMetronome
 Description = A G-Max Move used by G-Max Urshifu. This rapid-strike move can ignore Max Guard.
+#-------------------------------
+#-------------------------------
+#-------------------------------
+#-------------------------------
+#-------------------------------
+[DIRTKICK]
+Name = Dirt Kick
+Type = GROUND
+Category = Physical
+Power = 20
+Accuracy = 90
+TotalPP = 15
+Target = NearOther
+FunctionCode = HitTwoToFiveTimes
+Flags = Contact,CanProtect,CanMirrorMove
+Description = The user digs its feet into the ground, kicking up dirt towards the foe. It hits the Pokémon two to five times in a row.
+#-------------------------------
+[MISTYSNOUT]
+Name = Misty Snout
+Type = ICE
+Category = Special
+Power = 35
+Accuracy = 100
+TotalPP = 20
+Target = NearOther
+FunctionCode = None
+Flags = Contact,CanProtect,CanMirrorMove
+Description = The user makes a grunt with their snout, shooting the foe with icy mist.
+#-------------------------------
+[PHASE]
+Name = Phase
+Type = GHOST
+Category = Special
+Power = 40
+Accuracy = 100
+TotalPP = 15
+Target = NearOther
+FunctionCode = FlinchTarget
+Flags = Contact,CanProtect,CanMirrorMove
+EffectChance = 30
+Description = The user phases in and out, shooting a ghostly projectile at the foe that may make it flinch.
+#-------------------------------
+[PSYTACKLE]
+Name = Psy-Tackle
+Type = PSYCHIC
+Category = Physical
+Power = 40
+Accuracy = 100
+TotalPP = 15
+Target = NearOther
+FunctionCode = None
+Flags = Contact,CanProtect,CanMirrorMove
+Description = A physical attack in which the user empowers their body with psychic energy, charging towards the foe.
+#-------------------------------

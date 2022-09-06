@@ -150,7 +150,7 @@ class Battle::Scene::CommandMenu < Battle::Scene::MenuBase
       @cmdWindow = Window_CommandPokemon.newWithSize(
         [], self.x + Graphics.width - 240, self.y, 240, Graphics.height - self.y, viewport
       )
-      @cmdWindow.columns       = 2
+      @cmdWindow.columns       = 4
       @cmdWindow.columnSpacing = 4
       @cmdWindow.ignore_input  = true
       addSprite("cmdWindow", @cmdWindow)
@@ -297,7 +297,7 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
       @cmdWindow = Window_CommandPokemon.newWithSize(
         [], self.x, self.y, 320, Graphics.height - self.y, viewport
       )
-      @cmdWindow.columns       = 2
+      @cmdWindow.columns       = 4
       @cmdWindow.columnSpacing = 4
       @cmdWindow.ignore_input  = true
       pbSetNarrowFont(@cmdWindow.contents)
