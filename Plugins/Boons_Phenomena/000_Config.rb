@@ -15,8 +15,8 @@
 #   isOutsider = (pkmn.owner.id != pbPlayer.id || $PokemonTemp.phenomenonExp ||
 #-------------------------------------------------------------------------------
 module PhenomenonConfig
-  Frequency = 350 # Chance for phenomenon to generate on step. Between 350-600.
-  Timer = 3500 # How many frames to wait before phenomenon disappears
+  Frequency = 450 # Chance for phenomenon to generate on step. Between 350-600.
+  Timer = 3800 # How many frames to wait before phenomenon disappears
   Switch = 97 # Switch that when ON enables phenomena
   BattleMusic = "" # Custom music to play during Phenomenon
   Pokemon = {
@@ -25,8 +25,8 @@ module PhenomenonConfig
     # Below are 1/n chance of Pokémon being generated with these settings
     # Set to -1 to disable
     :ivs => 8, # 2 perfect IVs
-    :eggMoves => 25, # A random egg move
-    :hiddenAbility => 12, # Generated with hidden ability
+    :eggMoves => -1, # A random egg move
+    :hiddenAbility => -1, # Generated with hidden ability
   }
   Types = {
     # Animation ID, sound, animation height (1: above player/ 0: below)
@@ -50,10 +50,10 @@ module PhenomenonConfig
     :commonCave => [:FIREGEM, :WATERGEM, :ICEGEM, :ELECTRICGEM, :GRASSGEM, :FIGHTINGGEM,
                     :POISONGEM, :GROUNDGEM, :FLYINGGEM, :PSYCHICGEM, :BUGGEM, :ROCKGEM,
                     :GHOSTGEM, :DRAGONGEM, :DARKGEM, :STEELGEM, :NORMALGEM, :REDSHARD,
-                    :BLUESHARD, :YELLOWSHARD, :GREENSHARD, :HEARTSCALE],
+                    :BLUESHARD, :YELLOWSHARD, :GREENSHARD],
     # 10% chance
     :rareCave => [:THUNDERSTONE, :WATERSTONE, :LEAFSTONE, :MOONSTONE, :FIRESTONE,
-                  :SUNSTONE, :SHINYSTONE, :DUSKSTONE, :DAWNSTONE, :EVERSTONE, :OVALSTONE, :HEARTSCALE],
+                  :SUNSTONE, :SHINYSTONE, :DUSKSTONE, :DAWNSTONE, :EVERSTONE, :OVALSTONE],
     :bird => [:HEALTHWING, :RESISTWING, :CLEVERWING, :PRETTYWING, :MUSCLEWING, :GENIUSWING, :SWIFTWING],
   }
 end
