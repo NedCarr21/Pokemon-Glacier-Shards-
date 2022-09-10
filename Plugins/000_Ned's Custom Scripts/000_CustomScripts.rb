@@ -41,7 +41,7 @@ ITEMARR = [ #[:ITEM,QUANTITY,WEIGHT]
   [:HEARTSCALE,3,5]
 ]
   #[:ITEM,QUANTITY,WEIGHT]
-  def randrareItem
+  def randRareItem
     weightTotal = 0
     count = 0
     for i in 0..ITEMARR.length-1
