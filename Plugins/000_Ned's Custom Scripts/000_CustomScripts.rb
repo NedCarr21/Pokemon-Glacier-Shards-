@@ -59,15 +59,58 @@ ITEMARR = [ #[:ITEM,QUANTITY,WEIGHT]
       end
   end
 
+  GS_REGIONAL_ARRAY = pbAllRegionalSpecies(0)
+  GS_ALTERNATE_FORMS = [
+    :RATTATA,:RATICATE,
+    :RAICHU,
+    :SANDSHREW,:SANDSLASH,
+    :VULPIX,:NINETAILS,
+    :DIGLETT,:DUGTRIO,
+    :MEOWTH,:PERSIAN, # Meowth can be form id:1 and id:2 (alolan & galarian)
+    :GEODUDE,:GRAVELER,:GOLEM,
+    :PONYTA,:RAPIDASH,
+    :SLOWPOKE,:SLOWBRO,:SLOWKING,
+    :FARFETCHD,
+    :GRIMER,:MUK,
+    :EXEGGUTOR,
+    :MAROWAK,
+    :WEEZING,
+    :MRMIME,
+    :ARTICUNO,:ZAPDOS,:MOLTRES,
+    :CORSOLA,
+    :ZIGZAGOON,:LINOONE,
+    :DARUMAKA,:DARMANITAN, # special case since regional form is id:2
+    :YAMASK,
+    :STUNFISK,
+    :TOXTRICITY # to allow for Low-Key and High-Key forms
+  ]
 #randomizer encounters
 EventHandlers.add(:on_wild_pokemon_created, :gs_randomizer,
   proc { |pkmn|
     if $game_switches[61]
-      GS_REGIONAL_ARRAY = pbAllRegionalSpecies(0)
       pkmn.species = GS_REGIONAL_ARRAY.sample
       pkmn.level = 2 if pkmn.level < 2
+      pkmn.form = 0
       pkmn.calc_stats
       pkmn.reset_moves
+    end
+  }
+)
+
+#randomizer trainers
+EventHandlers.add(:on_trainer_load, :gs_randomizer,
+  proc { |trainer|
+    if trainer && $game_switches[61]
+      trainer.party.each { |pkmn|
+      pkmn.species = GS_REGIONAL_ARRAY.sample
+      pkmn.level = 2 if pkmn.level < 2
+      pkmn.form = 0
+      pkmn.calc_stats
+      pkmn.reset_moves
+      for pokemon in trainer.party do
+        pokemon = pkmn
+      end
+      }
     end
   }
 )
