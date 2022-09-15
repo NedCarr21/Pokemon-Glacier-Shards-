@@ -37,7 +37,10 @@ def baitFishing(style=rand(5)) # the number here must be equal to the amount of 
         _INTL("Specialty Bait"),
         _INTL("None")
       ]
-      bait = pbShowCommands(_INTL("Which bait would you like to use?"), cmds, 99)
+      bait = pbMessage(_INTL("Which bait would you like to use?"), cmds, 3)
+      pbWait(4)
+      pbMessage(_INTL("\\wtnp[4].\\wt[10].\\wt[10]."))
+      pbWait(4)
       pkmn = Pokemon.new(STYLES[style].sample, 5)
       case bait
         when 0 # Basic Bait

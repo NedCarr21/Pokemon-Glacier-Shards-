@@ -1,8 +1,8 @@
 ﻿# See the documentation on the wiki to learn how to edit this file.
 #-------------------------------
 [0]
-Name = The Island
 Filename = mapRegion2.png
+Name = The Island
 Point = 12,8,Glaciet Town,Glaciet Guild Hall,,,,
 Point = 12,9,Mountain Pass,,,,,
 Point = 13,8,Brisk Caverns,,,,,
@@ -54,7 +54,7 @@ Point = 11,13,Icy Plains,,,,,
 Point = 12,13,Lacebark Woods,,,,,
 Point = 12,12,Lacebark Woods,,,,,
 Point = 18,10,Trito Village,,,,,
-Point = 14,4,Apex's Ridge,,,,,
+Point = 14,4,Apex Ridge,,,,,
 Point = 10,12,Blizmoor Town,,,,,
 Point = 14,12,Merchant's Grotto,,,,,
 Point = 13,4,Apex Cavern,,,,,
@@ -70,3 +70,7 @@ Point = 12,4,The Apex Climb,,,,,
 Point = 11,4,The Apex Climb,,,,,
 Point = 10,4,Switchback Slateway,,,,,
 Point = 10,3,Switchback Slateway,,,,,
+Point = 21,10,Frozen Seas,,,,,
+Point = 22,10,Event Coast,,,,,
+Point = 23,10,Event Island,,,,,
+Point = 13,16,The Great ,,,,,

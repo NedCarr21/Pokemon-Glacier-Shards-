@@ -165,3 +165,75 @@ class Battle::Move::LowerPPOfTargetLastMoveBy3 < Battle::Move
                             target.pbThis(true), last_move.name, reduction))
   end
 end
+
+#===============================================================================
+# Fixed error when shifting Pokémon at the end of a battle round.
+#===============================================================================
+class Battle
+  def pbEORShiftDistantBattlers
+    # Move battlers around if none are near to each other
+    # NOTE: This code assumes each side has a maximum of 3 battlers on it, and
+    #       is not generalised to larger side sizes.
+    if !singleBattle?
+      swaps = []   # Each element is an array of two battler indices to swap
+      2.times do |side|
+        next if pbSideSize(side) == 1   # Only battlers on sides of size 2+ need to move
+        # Check if any battler on this side is near any battler on the other side
+        anyNear = false
+        allSameSideBattlers(side).each do |battler|
+          anyNear = allOtherSideBattlers(battler).any? { |other| nearBattlers?(other.index, battler.index) }
+          break if anyNear
+        end
+        break if anyNear
+        # No battlers on this side are near any battlers on the other side; try
+        # to move them
+        # NOTE: If we get to here (assuming both sides are of size 3 or less),
+        #       there is definitely only 1 able battler on this side, so we
+        #       don't need to worry about multiple battlers trying to move into
+        #       the same position. If you add support for a side of size 4+,
+        #       this code will need revising to account for that, as well as to
+        #       add more complex code to ensure battlers will end up near each
+        #       other.
+        allSameSideBattlers(side).each do |battler|
+          # Get the position to move to
+          pos = -1
+          case pbSideSize(side)
+          when 2 then pos = [2, 3, 0, 1][battler.index]   # The unoccupied position
+          when 3 then pos = (side == 0) ? 2 : 3    # The centre position
+          end
+          next if pos < 0
+          # Can't move if the same trainer doesn't control both positions
+          idxOwner = pbGetOwnerIndexFromBattlerIndex(battler.index)
+          next if pbGetOwnerIndexFromBattlerIndex(pos) != idxOwner
+          swaps.push([battler.index, pos])
+        end
+      end
+      # Move battlers around
+      swaps.each do |pair|
+        next if pbSideSize(pair[0]) == 2 && swaps.length > 1
+        next if !pbSwapBattlers(pair[0], pair[1])
+        case pbSideSize(pair[1])
+        when 2
+          pbDisplay(_INTL("{1} moved across!", @battlers[pair[1]].pbThis))
+        when 3
+          pbDisplay(_INTL("{1} moved to the center!", @battlers[pair[1]].pbThis))
+        end
+      end
+    end
+  end
+end
+
+#===============================================================================
+# Fixed bugs when the AI determines the best replacement Pokémon to switch into.
+#===============================================================================
+class Battle::AI
+  def pbCalcTypeModPokemon(battlerThis, battlerOther)
+    mod1 = Effectiveness.calculate(battlerThis.types[0], battlerOther.types[0], battlerOther.types[1])
+    mod2 = Effectiveness::NORMAL_EFFECTIVE
+    if battlerThis.types.length > 1
+      mod2 = Effectiveness.calculate(battlerThis.types[1], battlerOther.types[0], battlerOther.types[1])
+      mod2 = mod2.to_f / Effectiveness::NORMAL_EFFECTIVE
+    end
+    return mod1 * mod2
+  end
+end

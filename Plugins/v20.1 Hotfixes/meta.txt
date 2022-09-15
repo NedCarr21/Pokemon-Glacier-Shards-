@@ -1,5 +1,5 @@
 ﻿Name       = v20.1 Hotfixes
-Version    = 1.0.3
+Version    = 1.0.4
 Essentials = 20.1
 Conflicts  = v19 Hotfixes
 Conflicts  = v19.1 Updates
@@ -51,5 +51,21 @@ Credits    = Maruno
 # - Fixed being unable to set the player's movement speed during a
 #   move route.
 # - Fixed crash when ending a Bug Catching Contest.
+#
+# 1.0.4:
+#
+# - Fixed error when shifting Pokémon at the end of a battle round.
+# - Fixed Giratina's form code crashing if the current map doesn't
+#   have metadata.
+# - Fixed item sell prices being 25% of the buy prices rather than
+#   50%.
+# - Fixed bugs when the AI determines the best replacement Pokémon to
+#   switch into.
+# - The advanced battle-starting Debug functions now run
+#   encounter/trainer modifier code on the Pokémon/trainers.
+# - Fixed having no Pokémon in your party making the cursor not work
+#   as expected in the party screen.
+# - You can now reset a Pokémon's form to 0 in the Pokémon Debug menu
+#   if that Pokémon only has one defined form but its form is not 0.
 #
 #====================================================================

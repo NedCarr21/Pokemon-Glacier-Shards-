@@ -6,7 +6,7 @@
 # https://github.com/Maruno17/pokemon-essentials
 #===============================================================================
 
-Essentials::ERROR_TEXT += "[v20.1 Hotfixes 1.0.3]\r\n"
+Essentials::ERROR_TEXT += "[v20.1 Hotfixes 1.0.4]\r\n"
 
 #===============================================================================
 # Fixed the "See ya!" option in the PC menu not working properly.
@@ -297,4 +297,212 @@ SaveData.register(:stats) do
   load_value { |value| $stats = value }
   new_game_value { GameStats.new }
   reset_on_new_game
+end
+
+#===============================================================================
+# Fixed Giratina's form code crashing if the current map doesn't have metadata.
+#===============================================================================
+MultipleForms.register(:GIRATINA, {
+  "getForm" => proc { |pkmn|
+    next 1 if pkmn.hasItem?(:GRISEOUSORB)
+    if $game_map && $game_map.metadata&.has_flag?("DistortionWorld")
+      next 1
+    end
+    next 0
+  }
+})
+
+#===============================================================================
+# Fixed item sell prices being 25% of the buy prices rather than 50%.
+#===============================================================================
+class PokemonMart_Scene
+  def pbChooseNumber(helptext, item, maximum)
+    curnumber = 1
+    ret = 0
+    helpwindow = @sprites["helpwindow"]
+    itemprice = @adapter.getPrice(item, !@buying)
+    pbDisplay(helptext, true)
+    using(numwindow = Window_AdvancedTextPokemon.new("")) do   # Showing number of items
+      pbPrepareWindow(numwindow)
+      numwindow.viewport = @viewport
+      numwindow.width = 224
+      numwindow.height = 64
+      numwindow.baseColor = Color.new(88, 88, 80)
+      numwindow.shadowColor = Color.new(168, 184, 184)
+      numwindow.text = _INTL("x{1}<r>$ {2}", curnumber, (curnumber * itemprice).to_s_formatted)
+      pbBottomRight(numwindow)
+      numwindow.y -= helpwindow.height
+      loop do
+        Graphics.update
+        Input.update
+        numwindow.update
+        update
+        oldnumber = curnumber
+        if Input.repeat?(Input::LEFT)
+          curnumber -= 10
+          curnumber = 1 if curnumber < 1
+          if curnumber != oldnumber
+            numwindow.text = _INTL("x{1}<r>$ {2}", curnumber, (curnumber * itemprice).to_s_formatted)
+            pbPlayCursorSE
+          end
+        elsif Input.repeat?(Input::RIGHT)
+          curnumber += 10
+          curnumber = maximum if curnumber > maximum
+          if curnumber != oldnumber
+            numwindow.text = _INTL("x{1}<r>$ {2}", curnumber, (curnumber * itemprice).to_s_formatted)
+            pbPlayCursorSE
+          end
+        elsif Input.repeat?(Input::UP)
+          curnumber += 1
+          curnumber = 1 if curnumber > maximum
+          if curnumber != oldnumber
+            numwindow.text = _INTL("x{1}<r>$ {2}", curnumber, (curnumber * itemprice).to_s_formatted)
+            pbPlayCursorSE
+          end
+        elsif Input.repeat?(Input::DOWN)
+          curnumber -= 1
+          curnumber = maximum if curnumber < 1
+          if curnumber != oldnumber
+            numwindow.text = _INTL("x{1}<r>$ {2}", curnumber, (curnumber * itemprice).to_s_formatted)
+            pbPlayCursorSE
+          end
+        elsif Input.trigger?(Input::USE)
+          ret = curnumber
+          break
+        elsif Input.trigger?(Input::BACK)
+          pbPlayCancelSE
+          ret = 0
+          break
+        end
+      end
+    end
+    helpwindow.visible = false
+    return ret
+  end
+end
+
+class PokemonMartScreen
+  def pbSellScreen
+    item = @scene.pbStartSellScene(@adapter.getInventory, @adapter)
+    loop do
+      item = @scene.pbChooseSellItem
+      break if !item
+      itemname       = @adapter.getDisplayName(item)
+      itemnameplural = @adapter.getDisplayNamePlural(item)
+      if !@adapter.canSell?(item)
+        pbDisplayPaused(_INTL("Oh, no. I can't buy {1}.", itemnameplural))
+        next
+      end
+      price = @adapter.getPrice(item, true)
+      qty = @adapter.getQuantity(item)
+      next if qty == 0
+      @scene.pbShowMoney
+      if qty > 1
+        qty = @scene.pbChooseNumber(
+          _INTL("How many {1} would you like to sell?", itemnameplural), item, qty
+        )
+      end
+      if qty == 0
+        @scene.pbHideMoney
+        next
+      end
+      price *= qty
+      if pbConfirm(_INTL("I can pay ${1}.\nWould that be OK?", price.to_s_formatted))
+        old_money = @adapter.getMoney
+        @adapter.setMoney(@adapter.getMoney + price)
+        $stats.money_earned_at_marts += @adapter.getMoney - old_money
+        qty.times { @adapter.removeItem(item) }
+        sold_item_name = (qty > 1) ? itemnameplural : itemname
+        pbDisplayPaused(_INTL("You turned over the {1} and got ${2}.",
+                              sold_item_name, price.to_s_formatted)) { pbSEPlay("Mart buy item") }
+        @scene.pbRefresh
+      end
+      @scene.pbHideMoney
+    end
+    @scene.pbEndSellScene
+  end
+end
+
+#===============================================================================
+# Fixed having no Pokémon in your party making the cursor not work as expected
+# in the party screen.
+#===============================================================================
+class PokemonParty_Scene
+  def pbChangeSelection(key, currentsel)
+    numsprites = Settings::MAX_PARTY_SIZE + ((@multiselect) ? 2 : 1)
+    case key
+    when Input::LEFT
+      loop do
+        currentsel -= 1
+        break unless currentsel > 0 && currentsel < @party.length && !@party[currentsel]
+      end
+      if currentsel >= @party.length && currentsel < Settings::MAX_PARTY_SIZE
+        currentsel = @party.length - 1
+      end
+      currentsel = numsprites - 1 if currentsel < 0
+    when Input::RIGHT
+      loop do
+        currentsel += 1
+        break unless currentsel < @party.length && !@party[currentsel]
+      end
+      if currentsel == @party.length
+        currentsel = Settings::MAX_PARTY_SIZE
+      elsif currentsel == numsprites
+        currentsel = 0
+        currentsel = numsprites - 1 if currentsel >= @party.length
+      end
+    when Input::UP
+      if currentsel >= Settings::MAX_PARTY_SIZE
+        currentsel -= 1
+        while currentsel > 0 && currentsel < Settings::MAX_PARTY_SIZE && !@party[currentsel]
+          currentsel -= 1
+        end
+        currentsel = numsprites - 1 if currentsel >= @party.length
+      else
+        loop do
+          currentsel -= 2
+          break unless currentsel > 0 && !@party[currentsel]
+        end
+      end
+      if currentsel >= @party.length && currentsel < Settings::MAX_PARTY_SIZE
+        currentsel = @party.length - 1
+      end
+      currentsel = numsprites - 1 if currentsel < 0
+    when Input::DOWN
+      if currentsel >= Settings::MAX_PARTY_SIZE - 1
+        currentsel += 1
+      else
+        currentsel += 2
+        currentsel = Settings::MAX_PARTY_SIZE if currentsel < Settings::MAX_PARTY_SIZE && !@party[currentsel]
+      end
+      if currentsel >= @party.length && currentsel < Settings::MAX_PARTY_SIZE
+        currentsel = Settings::MAX_PARTY_SIZE
+      elsif currentsel >= numsprites
+        currentsel = 0
+        currentsel = numsprites - 1 if currentsel >= @party.length
+      end
+    end
+    return currentsel
+  end
+
+  def pbHardRefresh
+    oldtext = []
+    lastselected = -1
+    Settings::MAX_PARTY_SIZE.times do |i|
+      oldtext.push(@sprites["pokemon#{i}"].text)
+      lastselected = i if @sprites["pokemon#{i}"].selected
+      @sprites["pokemon#{i}"].dispose
+    end
+    lastselected = @party.length - 1 if lastselected >= @party.length
+    lastselected = Settings::MAX_PARTY_SIZE if lastselected < 0
+    Settings::MAX_PARTY_SIZE.times do |i|
+      if @party[i]
+        @sprites["pokemon#{i}"] = PokemonPartyPanel.new(@party[i], i, @viewport)
+      else
+        @sprites["pokemon#{i}"] = PokemonPartyBlankPanel.new(@party[i], i, @viewport)
+      end
+      @sprites["pokemon#{i}"].text = oldtext[i]
+    end
+    pbSelect(lastselected)
+  end
 end

@@ -45,7 +45,7 @@ class HUD
   ANIMATED_ICONS=true
 
   # When above 0, only displays HUD when this switch is on.
-  SWITCH_NUMBER = 0
+  SWITCH_NUMBER = 62
 
   # Lower this number = more lag.
   FRAMES_PER_UPDATE = 30
@@ -114,7 +114,7 @@ class HUD
   def showHUD?
     return (
       $player &&
-      (SWITCH_NUMBER<=0 || $game_switches[SWITCH_NUMBER]) &&
+      (SWITCH_NUMBER<=0 || !$game_switches[SWITCH_NUMBER]) &&
       (!DRAW_ONLY_IN_MENU || $game_temp.in_menu)
     )
   end
